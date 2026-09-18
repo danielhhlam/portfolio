@@ -30,10 +30,12 @@ export default function Home() {
   return (
     <div className="flex h-dvh flex-col overflow-hidden">
       <HomeBodyClass />
-      <div className="mx-auto flex min-h-0 w-full max-w-[660px] flex-1 animate-fade flex-col px-6 pb-[clamp(12px,2vh,24px)]">
-        <Header compact />
+      <div className="mx-auto grid min-h-0 w-full max-w-[660px] flex-1 animate-fade grid-rows-[1fr_auto_1fr] px-6 pb-[clamp(12px,2vh,24px)]">
+        <div className="self-start">
+          <Header compact />
+        </div>
 
-        <main className="flex min-h-0 flex-1 flex-col justify-[safe_center] gap-[clamp(4px,.85vh,7px)] overflow-auto text-[clamp(12.5px,1.55vh,14px)] leading-[1.5]">
+        <main className="flex min-h-0 flex-col gap-[clamp(4px,.85vh,7px)] overflow-auto text-[clamp(12.5px,1.55vh,14px)] leading-[1.5]">
           <Row>
             Previous Software Developer <M>at</M> <Ext href="https://www.computer-talk.com/">ComputerTalk</Ext>
           </Row>
@@ -66,7 +68,9 @@ export default function Home() {
           </Row>
         </main>
 
-        <Footer compact />
+        <div className="self-end">
+          <Footer compact />
+        </div>
       </div>
     </div>
   );

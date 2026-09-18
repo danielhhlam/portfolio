@@ -45,10 +45,13 @@
 
 @layer base {
 html, body { margin: 0; background: var(--bg); color: var(--text); }
+html { transition: background-color .3s ease; }
 body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  transition: background-color .3s ease, color .3s ease;
+}
+*, *::before, *::after {
+  transition: background-color .3s ease, color .3s ease, border-color .3s ease, text-decoration-color .3s ease;
 }
 a { color: var(--text); text-decoration: none; }
 :focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
@@ -67,6 +70,3 @@ html:has(body.home-page), body.home-page { height: 100%; overflow: hidden; }
 }
 .ink:hover { text-decoration-color: var(--text); }
 
-@media (prefers-reduced-motion: reduce) {
-  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-}
