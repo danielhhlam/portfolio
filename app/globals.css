@@ -6,8 +6,17 @@
 @import "@fontsource/jetbrains-mono/400.css";
 @import "@fontsource/jetbrains-mono/500.css";
 
+/* Registered so the theme colors interpolate once at the root instead of per element */
+@property --bg { syntax: "<color>"; inherits: true; initial-value: #000; }
+@property --surface { syntax: "<color>"; inherits: true; initial-value: #000; }
+@property --text { syntax: "<color>"; inherits: true; initial-value: #000; }
+@property --muted { syntax: "<color>"; inherits: true; initial-value: #000; }
+@property --line { syntax: "<color>"; inherits: true; initial-value: #000; }
+@property --hover { syntax: "<color>"; inherits: true; initial-value: #000; }
+
 /* Strictly monochrome tokens */
 :root {
+  transition: --bg .25s ease, --surface .25s ease, --text .25s ease, --muted .25s ease, --line .25s ease, --hover .25s ease;
   --bg: #000000;
   --surface: #0b0b0b;
   --text: #f2f2f2;
@@ -45,13 +54,9 @@
 
 @layer base {
 html, body { margin: 0; background: var(--bg); color: var(--text); }
-html { transition: background-color .3s ease; }
 body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-}
-*, *::before, *::after {
-  transition: background-color .3s ease, color .3s ease, border-color .3s ease, text-decoration-color .3s ease;
 }
 a { color: var(--text); text-decoration: none; }
 :focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
