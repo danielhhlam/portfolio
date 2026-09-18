@@ -4,7 +4,7 @@ import { SearchProvider } from "@/components/SearchProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Daniel Lam — Software Engineer",
+  title: "Daniel Lam",
   description: "Daniel Lam, software engineer studying Computer Engineering at the University of Waterloo.",
   icons: {
     icon: [

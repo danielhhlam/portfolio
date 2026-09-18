@@ -1,4 +1,4 @@
-# Daniel Lam — Portfolio
+# Daniel Lam Portfolio
 
 Personal portfolio built with Next.js (App Router), React, Tailwind CSS v4 and `next-themes`.
 It is fully static: no API routes and no database. Projects and search data live in `data/`.

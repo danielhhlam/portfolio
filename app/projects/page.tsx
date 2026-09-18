@@ -3,7 +3,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ProjectsBrowser } from "@/components/ProjectsBrowser";
 
-export const metadata = { title: "Projects — Daniel Lam" };
+export const metadata = { title: "Daniel Lam" };
 
 export default function ProjectsPage() {
   return (
