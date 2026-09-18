@@ -63,7 +63,7 @@ export default function Home() {
           </Row>
           <Row group>
             In my free time: <span className="font-medium">lifting</span>
-            <M>,</M> <span className="font-medium">barbering</span>
+            <M>,</M> <Ext href="https://www.instagram.com/dl_fades/">barbering</Ext>
             <M>, and</M> <span className="font-medium">listening to music</span>
           </Row>
         </main>
