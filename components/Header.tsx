@@ -32,7 +32,7 @@ export function Header({ compact = false }: { compact?: boolean }) {
   return (
     <header
       className={`flex flex-nowrap items-center justify-between gap-2.5 ${
-        compact ? "pb-[clamp(13px,2.2vh,26px)] pt-[clamp(14px,2.6vh,28px)]" : "sticky top-0 z-20 bg-bg pb-[26px] pt-7"
+        compact ? "pb-[clamp(13px,2.2vh,26px)] pt-[clamp(14px,2.6vh,28px)]" : "sticky top-0 z-50 -mx-6 bg-bg px-6 pb-[26px] pt-7"
       }`}
     >
       <span className="font-mono text-[15px] font-medium tracking-[-0.01em]">Daniel Lam</span>

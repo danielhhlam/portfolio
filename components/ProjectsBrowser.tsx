@@ -65,7 +65,7 @@ export function ProjectsBrowser() {
         })}
       </div>
 
-      <section className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,330px),1fr))] gap-4">
+      <section className="relative z-0 grid grid-cols-[repeat(auto-fill,minmax(min(100%,330px),1fr))] gap-4">
         {shown.map((p) => (
           <a
             key={p.id}
