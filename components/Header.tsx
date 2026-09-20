@@ -16,6 +16,19 @@ export function Header({ compact = false }: { compact?: boolean }) {
   const { resolvedTheme, setTheme } = useTheme();
   const { openSearch } = useSearch();
 
+  // One cross-fade of the whole page; browsers without View Transitions switch instantly
+  const toggleTheme = () => {
+    const next = resolvedTheme === "light" ? "dark" : "light";
+    const root = document.documentElement;
+    const apply = () => {
+      root.setAttribute("data-theme", next);
+      setTheme(next);
+    };
+    if (!document.startViewTransition) return apply();
+    root.classList.add("theme-switching");
+    document.startViewTransition(apply).finished.finally(() => root.classList.remove("theme-switching"));
+  };
+
   return (
     <header
       className={`flex flex-nowrap items-center justify-between gap-2.5 ${
@@ -46,12 +59,7 @@ export function Header({ compact = false }: { compact?: boolean }) {
         <button
           type="button"
           aria-label="Toggle color mode"
-          onClick={() => {
-            const root = document.documentElement;
-            root.classList.add("theme-switching");
-            setTheme(resolvedTheme === "light" ? "dark" : "light");
-            window.setTimeout(() => root.classList.remove("theme-switching"), 300);
-          }}
+          onClick={toggleTheme}
           className="ml-0.5 flex size-7 cursor-pointer items-center justify-center rounded-lg border border-transparent bg-transparent text-muted hover:border-line"
         >
           <span className="inline-block size-[11px] rounded-full border border-muted bg-text" />

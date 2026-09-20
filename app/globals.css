@@ -6,17 +6,8 @@
 @import "@fontsource/jetbrains-mono/400.css";
 @import "@fontsource/jetbrains-mono/500.css";
 
-/* Registered so the theme colors interpolate once at the root instead of per element */
-@property --bg { syntax: "<color>"; inherits: true; initial-value: #000; }
-@property --surface { syntax: "<color>"; inherits: true; initial-value: #000; }
-@property --text { syntax: "<color>"; inherits: true; initial-value: #000; }
-@property --muted { syntax: "<color>"; inherits: true; initial-value: #000; }
-@property --line { syntax: "<color>"; inherits: true; initial-value: #000; }
-@property --hover { syntax: "<color>"; inherits: true; initial-value: #000; }
-
 /* Strictly monochrome tokens */
 :root {
-  transition: --bg .25s ease, --surface .25s ease, --text .25s ease, --muted .25s ease, --line .25s ease, --hover .25s ease;
   --bg: #000000;
   --surface: #0b0b0b;
   --text: #f2f2f2;
@@ -75,6 +66,7 @@ html:has(body.home-page), body.home-page { height: 100%; overflow: hidden; }
 }
 .ink:hover { text-decoration-color: var(--text); }
 
-/* While the theme fades, per-element transitions would lag behind the animated variables */
-html.theme-switching *:not(:root), html.theme-switching *::before, html.theme-switching *::after { transition: none !important; }
+/* The theme change is a single page cross-fade (View Transitions); keep element transitions out of it */
+html.theme-switching *, html.theme-switching *::before, html.theme-switching *::after { transition: none !important; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .3s; animation-timing-function: ease; }
 
