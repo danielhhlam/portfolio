@@ -68,10 +68,13 @@ html:has(body.home-page), body.home-page { height: 100%; overflow: hidden; }
 .ink {
   font-weight: 500;
   text-decoration: underline;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 1.5px;
   text-underline-offset: 3px;
-  text-decoration-color: var(--line);
+  text-decoration-color: var(--muted);
   transition: text-decoration-color .2s ease;
 }
 .ink:hover { text-decoration-color: var(--text); }
+
+/* While the theme fades, per-element transitions would lag behind the animated variables */
+html.theme-switching *:not(:root), html.theme-switching *::before, html.theme-switching *::after { transition: none !important; }
 

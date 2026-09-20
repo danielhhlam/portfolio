@@ -46,7 +46,12 @@ export function Header({ compact = false }: { compact?: boolean }) {
         <button
           type="button"
           aria-label="Toggle color mode"
-          onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
+          onClick={() => {
+            const root = document.documentElement;
+            root.classList.add("theme-switching");
+            setTheme(resolvedTheme === "light" ? "dark" : "light");
+            window.setTimeout(() => root.classList.remove("theme-switching"), 300);
+          }}
           className="ml-0.5 flex size-7 cursor-pointer items-center justify-center rounded-lg border border-transparent bg-transparent text-muted hover:border-line"
         >
           <span className="inline-block size-[11px] rounded-full border border-muted bg-text" />
