@@ -35,7 +35,7 @@ export default function Home() {
           <Header compact />
         </div>
 
-        <main className="flex min-h-0 flex-col gap-[clamp(4px,.85vh,7px)] overflow-auto text-[clamp(12.5px,1.55vh,14px)] leading-[1.5]">
+        <main className="-mx-2 -my-1.5 flex min-h-0 flex-col px-2 py-1.5 gap-[clamp(4px,.85vh,7px)] overflow-auto text-[clamp(12.5px,1.55vh,14px)] leading-[1.5]">
           <Row>
             Previous Software Developer <M>at</M> <Ext href="https://www.computer-talk.com/">ComputerTalk</Ext>
           </Row>

@@ -64,6 +64,7 @@ html:has(body.home-page), body.home-page { height: 100%; overflow: hidden; }
   text-decoration-color: var(--muted);
   transition: text-decoration-color .2s ease;
 }
+.ink:focus-visible { border-radius: 3px; }
 .ink:hover { text-decoration-color: var(--text); }
 
 /* The theme change is a single page cross-fade (View Transitions); keep element transitions out of it */

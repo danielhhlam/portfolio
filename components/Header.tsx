@@ -7,7 +7,7 @@ import { useSearch } from "./SearchProvider";
 import { SearchIcon } from "./icons";
 
 const chip =
-  "flex items-center gap-[7px] rounded-lg border px-2.5 py-1.5 text-[13px] cursor-pointer bg-transparent";
+  "flex items-center gap-[7px] rounded-lg border px-2 py-1.5 sm:px-2.5 text-[13px] cursor-pointer bg-transparent";
 const idle = "border-transparent text-muted hover:border-line hover:text-text";
 const current = "border-line text-text hover:bg-hover";
 
@@ -31,12 +31,13 @@ export function Header({ compact = false }: { compact?: boolean }) {
 
   return (
     <header
-      className={`flex flex-nowrap items-center justify-between gap-2.5 ${
-        compact ? "pb-[clamp(13px,2.2vh,26px)] pt-[clamp(14px,2.6vh,28px)]" : "sticky top-0 z-50 -mx-6 bg-bg px-6 pb-[26px] pt-7"
+      className={`flex flex-nowrap items-center justify-between gap-2.5 pb-[clamp(13px,3.25vh,26px)] pt-[clamp(14px,3.5vh,28px)] ${
+        // Full-bleed opaque bar so nothing (card shadows) shows beside or under it while scrolling
+        compact ? "" : "sticky top-0 z-50 bg-bg [box-shadow:0_0_0_100vmax_var(--bg)] [clip-path:inset(0_-100vmax)]"
       }`}
     >
-      <span className="font-mono text-[15px] font-medium tracking-[-0.01em]">Daniel Lam</span>
-      <nav className="flex flex-wrap items-center justify-end gap-1.5">
+      <span className="whitespace-nowrap font-mono text-[15px] font-medium tracking-[-0.01em]">Daniel Lam</span>
+      <nav className="flex flex-nowrap items-center justify-end gap-0.5 sm:gap-1.5">
         <Link href="/" className={`${chip} ${path === "/" ? current : idle}`} aria-current={path === "/" ? "page" : undefined}>
           Home
         </Link>
@@ -54,7 +55,7 @@ export function Header({ compact = false }: { compact?: boolean }) {
           className={`${chip} ${idle}`}
         >
           <SearchIcon />
-          Search
+          <span className="hidden min-[430px]:inline">Search</span>
         </button>
         <button
           type="button"
